@@ -19,12 +19,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -41,5 +35,9 @@
   "main": "index.js",
   "repository": "https://github.com/jde-gr/test-smartphone-catalog.git",
   "author": "Francisco Javier Delgado Esteban <javier.delgadoesteban@plexus.es>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint-plugin-jest-dom": "^4.0.2",
+    "eslint-plugin-testing-library": "^5.7.2"
+  }
 }
