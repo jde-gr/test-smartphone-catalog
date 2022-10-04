@@ -1,16 +1,18 @@
-import './App.css';
-import Layout from './components/Layout/Layout';
-import ProductList from './components/Shop/ProductList';
-import SearchBar from './components/Shop/SearchBar';
+import { Routes, Route, Navigate } from 'react-router-dom';
+
+import ProductListPage from './pages/ProductListPage';
+import ProductDetailsPage from './pages/ProductDetailsPage';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <>
-      <Layout>
-        <SearchBar />
-        <ProductList />
-      </Layout>
-    </>
+    <Routes>
+      <Route path='/' element={<Navigate replace to='/devices' />} />
+      <Route path='/devices' element={<ProductListPage />} />
+      <Route path='/device' element={<ProductDetailsPage />} />
+      <Route path='/device/:device' element={<ProductDetailsPage />} />
+      <Route path='*' element={<NotFound />} />
+    </Routes>
   );
 }
 

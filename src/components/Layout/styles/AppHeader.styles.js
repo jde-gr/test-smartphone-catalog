@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { HEADERHEIGHT } from '../../../core/constants';
 
 export const Header = styled.div`
   display: flex;
@@ -6,7 +7,7 @@ export const Header = styled.div`
   align-items: center;
   padding: 0 1.5rem;
   width: 100%;
-  height: 5rem;
+  height: ${HEADERHEIGHT};
   background-color: #345678;
   box-sizing: border-box;
 `;

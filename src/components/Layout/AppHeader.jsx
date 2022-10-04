@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Header, HeaderTitleWrapper, HeaderTitle } from './AppHeader.styles';
+import {
+  Header,
+  HeaderTitleWrapper,
+  HeaderTitle,
+} from './styles/AppHeader.styles';
 
 import logo from '../../logo.svg';
 import CartCounter from '../Header/CartCounter';
