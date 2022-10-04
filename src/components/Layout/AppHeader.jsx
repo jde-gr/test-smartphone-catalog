@@ -12,7 +12,7 @@ const AppHeader = (props) => {
       <HeaderTitleWrapper>
         <HeaderTitle>
           <img src={logo} className='App-logo' alt='logo' />{' '}
-          <p>Elige tu móvil</p>
+          <h1>Elige tu móvil</h1>
         </HeaderTitle>
         <Breadcrumb />
       </HeaderTitleWrapper>

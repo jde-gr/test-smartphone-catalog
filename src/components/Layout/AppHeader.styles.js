@@ -27,11 +27,12 @@ export const HeaderTitle = styled.div`
     height: 3rem;
     flex: 0 1 auto;
   }
-  & p {
+  & h1 {
     height: 3rem;
     line-height: 3rem;
     display: inline-block;
     margin: 0;
     font-size: 2rem;
+    font-weight: 500;
   }
 `;
