@@ -1,6 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import {
+  render,
+  screen,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
+import userEvent from '@testing-library/user-event';
 
 import ProductList from '../ProductList';
 
@@ -36,4 +41,28 @@ test('displays a search bar to filter devices', () => {
 
   const searchInput = screen.getByPlaceholderText(/buscar/i);
   expect(searchInput).toBeInTheDocument();
+});
+
+test('updates device list when typing on search', async () => {
+  render(
+    <QueryClientProvider client={queryClient}>
+      <ProductList />
+    </QueryClientProvider>
+  );
+
+  // find device model that will be filtered and that one which will remain
+  const modelText = screen.getByText(/Iconia Talk S$/i);
+  const model2Text = screen.getByText(/Liquid Z6 Plus$/i);
+  expect(modelText).toBeInTheDocument();
+  expect(model2Text).toBeInTheDocument();
+
+  const searchInput = screen.getByPlaceholderText(/buscar/i);
+  expect(searchInput).toBeInTheDocument();
+
+  userEvent.clear(searchInput);
+  userEvent.type(searchInput, 'liquid');
+
+  // expect the filtered device not to appear any more, while remaining the other one
+  expect(modelText).not.toBeInTheDocument();
+  expect(model2Text).toBeInTheDocument();
 });
