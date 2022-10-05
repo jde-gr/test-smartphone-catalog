@@ -2,7 +2,8 @@ import styled from '@emotion/styled';
 import { breakpoints } from '../../../core/constants';
 
 export const PageContainer = styled.div`
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
+  box-sizing: border-box;
 `;
 
 export const PLPList = styled.div`

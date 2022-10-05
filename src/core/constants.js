@@ -8,3 +8,7 @@ export const breakpoints = {
   lg: '@media screen and (min-width: 62rem)',
   xl: '@media screen and (min-width: 75rem)',
 };
+
+export const primary = '#345678';
+export const secondary = '#d8b321';
+export const tertiary = '#456789';

@@ -5,7 +5,8 @@ export const InputDiv = styled.div`
   justify-content: right;
   align-items: center;
   width: 100%;
-  height: 3, 125rem;
+  height: 3.125rem;
+  margin: 0.5rem 0rem;
 `;
 
 export const Input = styled.input`

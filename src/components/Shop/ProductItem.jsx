@@ -1,16 +1,27 @@
 import React from 'react';
+import Card from '../UI/Card';
+import {
+  Brand,
+  Content,
+  Image,
+  ImgContainer,
+  Model,
+  Price,
+} from './styles/ProductItem.styles';
 
 const ProductItem = (props) => {
   const { id, brand, model, price, imgUrl } = props;
   return (
-    <div>
-      <h1>ProductItem</h1>
-      <p>Id: {id}</p>
-      <p>Marca: {brand}</p>
-      <p>Modelo: {model}</p>
-      <p>Precio: {price}</p>
-      <img src={imgUrl} alt={`Dispositivo ${brand} ${model}`} />
-    </div>
+    <Card>
+      <ImgContainer>
+        <Image src={imgUrl} alt={`Dispositivo ${brand} ${model}`} />
+      </ImgContainer>
+      <Content>
+        <Brand>Marca: {brand}</Brand>
+        <Model>Modelo: {model}</Model>
+        <Price>Precio: {price}€</Price>
+      </Content>
+    </Card>
   );
 };
 
