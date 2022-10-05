@@ -1,10 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SearchBar = (props) => {
-  return <div>SearchBar</div>;
-};
+import { InputDiv, Input } from './styles/SearchBar.styles';
 
-SearchBar.propTypes = {};
+const SearchBar = (props) => {
+  const inputChangeHandler = (event) =>
+    props.onChangeFilter(event.target.value);
+
+  return (
+    <InputDiv>
+      <Input type='text' placeholder='Buscar' onChange={inputChangeHandler} />
+    </InputDiv>
+  );
+};
 
 export default SearchBar;

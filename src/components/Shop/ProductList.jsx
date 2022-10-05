@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
-import PropTypes from 'prop-types';
 
-import ProductItem from './ProductItem';
 import { BASE_URL } from '../../core/constants';
-import { InputDiv, Input, PLPList } from './styles/ProductList.styles';
+import ProductItem from './ProductItem';
+import SearchBar from './SearchBar';
+import { PLPList, PageContainer } from './styles/ProductList.styles';
 
 const ProductList = () => {
   const fetchProducts = async () => {
@@ -36,10 +36,9 @@ const ProductList = () => {
     />
   ));
 
-  const filterHandler = (event) => {
+  const filterHandler = (value) => {
     setFilteredData(
       data.filter((device) => {
-        const value = event.target.value;
         return (
           device.brand.toLowerCase().includes(value) ||
           device.model.toLowerCase().includes(value)
@@ -49,19 +48,15 @@ const ProductList = () => {
   };
 
   return (
-    <>
-      <InputDiv>
-        <Input type='text' placeholder='Buscar' onChange={filterHandler} />
-      </InputDiv>
+    <PageContainer>
+      <SearchBar onChangeFilter={filterHandler} />
       {status === 'error' && <p>{error.toString()}</p>}
       {(status === 'loading' || isFetching) && <p>Fetching data...</p>}
       {status === 'success' && filteredData !== [] && (
         <PLPList>{devices}</PLPList>
       )}
-    </>
+    </PageContainer>
   );
 };
-
-ProductList.propTypes = {};
 
 export default ProductList;

@@ -6,7 +6,6 @@ const ProductListPage = () => {
   return (
     <>
       <Layout>
-        <SearchBar />
         <ProductList />
       </Layout>
     </>
