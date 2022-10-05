@@ -1,10 +1,12 @@
 import { render, screen } from '@testing-library/react';
+
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import ProductList from '../ProductList';
 
+const queryClient = new QueryClient();
+
 test('displays image for each mobile device from server', async () => {
-  const queryClient = new QueryClient();
   render(
     <QueryClientProvider client={queryClient}>
       <ProductList />
@@ -23,4 +25,15 @@ test('displays image for each mobile device from server', async () => {
     'Dispositivo Acer Iconia Talk S',
     'Dispositivo Acer Liquid Z6 Plus',
   ]);
+});
+
+test('displays a search bar to filter devices', () => {
+  render(
+    <QueryClientProvider client={queryClient}>
+      <ProductList />
+    </QueryClientProvider>
+  );
+
+  const searchInput = screen.getByPlaceholderText(/buscar/i);
+  expect(searchInput).toBeInTheDocument();
 });
