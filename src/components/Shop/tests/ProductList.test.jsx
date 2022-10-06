@@ -36,7 +36,7 @@ test('updates device list when typing on search', async () => {
   render(<ProductList />);
 
   // find device model that will be filtered and that one which will remain
-  const modelText = screen.getByText(/Iconia Talk S$/i);
+  const modelText = await screen.findByText(/Iconia Talk S$/i);
   const model2Text = screen.getByText(/Liquid Z6 Plus$/i);
   expect(modelText).toBeInTheDocument();
   expect(model2Text).toBeInTheDocument();
@@ -50,4 +50,13 @@ test('updates device list when typing on search', async () => {
   // expect the filtered device not to appear any more, while remaining the other one
   expect(modelText).not.toBeInTheDocument();
   expect(model2Text).toBeInTheDocument();
+});
+
+test('device card links to the details page', async () => {
+  render(<ProductList />);
+
+  const card1Link = await screen.findByTestId('ZmGrkLRPXOTpxsU4jjAcv');
+  expect(card1Link).toHaveAttribute('href', '/device/:ZmGrkLRPXOTpxsU4jjAcv');
+
+  // expect(modelText.closest('a')).toHaveAttribute('href', /^\/device\/:/i);
 });
