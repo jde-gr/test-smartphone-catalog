@@ -1,12 +1,14 @@
+import { useLocation } from 'react-router-dom';
 import Layout from '../components/Layout/Layout';
-import SearchBar from '../components/Shop/SearchBar';
 import ProductDetails from '../components/Shop/ProductDetails';
 
 const ProductDetailsPage = () => {
+  const location = useLocation();
+  const { id } = location.state;
   return (
     <>
       <Layout>
-        <ProductDetails />
+        <ProductDetails id={id} />
       </Layout>
     </>
   );

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { breakpoints } from '../../../core/constants';
+import { BREAKPOINTS } from '../../../core/constants';
 
 export const PageContainer = styled.div`
   padding: 0 2rem 2rem 2rem;
@@ -10,13 +10,13 @@ export const PLPList = styled.div`
   display: grid;
   gap: 0.5rem;
 
-  ${breakpoints.sm} {
+  ${BREAKPOINTS.sm} {
     grid-template-columns: repeat(2, 1fr);
   }
-  ${breakpoints.md} {
+  ${BREAKPOINTS.md} {
     grid-template-columns: repeat(3, 1fr);
   }
-  ${breakpoints.lg} {
+  ${BREAKPOINTS.lg} {
     grid-template-columns: repeat(4, 1fr);
   }
 `;

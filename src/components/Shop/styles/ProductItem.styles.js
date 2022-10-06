@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { primary } from '../../../core/constants';
+import { PRIMARY } from '../../../core/constants';
 
 export const LinkContainer = styled.div`
   border-radius: 0.75rem;
@@ -54,6 +54,6 @@ export const Price = styled.p`
   font-size: 0.875rem;
   font-weight: 700;
   margin: 0.2rem 0;
-  color: ${primary};
+  color: ${PRIMARY};
   text-decoration: none;
 `;

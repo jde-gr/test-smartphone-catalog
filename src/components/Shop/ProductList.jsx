@@ -52,7 +52,7 @@ const ProductList = () => {
       <SearchBar onChangeFilter={filterHandler} />
       {status === 'error' && <p>{error.toString()}</p>}
       {(status === 'loading' || isFetching) && <p>Fetching data...</p>}
-      {status === 'success' && filteredData !== [] && (
+      {status === 'success' && !!filteredData.length && (
         <PLPList>{devices}</PLPList>
       )}
     </PageContainer>
