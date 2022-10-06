@@ -2,21 +2,14 @@ import {
   render,
   screen,
   waitForElementToBeRemoved,
-} from '@testing-library/react';
+} from '../../../test-utils/testing-library-utils';
 
-import { QueryClient, QueryClientProvider } from 'react-query';
 import userEvent from '@testing-library/user-event';
 
 import ProductList from '../ProductList';
 
-const queryClient = new QueryClient();
-
 test('displays image for each mobile device from server', async () => {
-  render(
-    <QueryClientProvider client={queryClient}>
-      <ProductList />
-    </QueryClientProvider>
-  );
+  render(<ProductList />);
 
   // find images
   const mobileImages = await screen.findAllByRole('img', {
@@ -33,22 +26,14 @@ test('displays image for each mobile device from server', async () => {
 });
 
 test('displays a search bar to filter devices', () => {
-  render(
-    <QueryClientProvider client={queryClient}>
-      <ProductList />
-    </QueryClientProvider>
-  );
+  render(<ProductList />);
 
   const searchInput = screen.getByPlaceholderText(/buscar/i);
   expect(searchInput).toBeInTheDocument();
 });
 
 test('updates device list when typing on search', async () => {
-  render(
-    <QueryClientProvider client={queryClient}>
-      <ProductList />
-    </QueryClientProvider>
-  );
+  render(<ProductList />);
 
   // find device model that will be filtered and that one which will remain
   const modelText = screen.getByText(/Iconia Talk S$/i);

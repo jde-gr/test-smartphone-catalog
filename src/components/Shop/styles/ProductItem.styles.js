@@ -1,6 +1,25 @@
 import styled from '@emotion/styled';
 import { primary } from '../../../core/constants';
 
+export const LinkContainer = styled.div`
+  border-radius: 0.75rem;
+  & a {
+    color: inherit;
+    text-decoration: none;
+  }
+  & a:hover {
+    & div:first-of-type {
+      background-color: rgba(52, 86, 120, 0.15);
+        border-radius: 0.75rem 0.75rem 0 0;
+    }
+    & div:nth-of-type(2) {
+      background-color: rgba(52, 86, 120, 0.20);
+      border-radius: 0 0 0.75rem 0.75rem;
+    }
+    }
+  }
+`;
+
 export const ImgContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -21,12 +40,14 @@ export const Brand = styled.h4`
   font-size: 1.25rem;
   font-weight: 500;
   margin: 0;
+  text-decoration: none;
 `;
 
 export const Model = styled.h6`
   font-size: 1rem;
   font-weight: 300;
   margin: 0.2rem 0;
+  text-decoration: none;
 `;
 
 export const Price = styled.p`
@@ -34,4 +55,5 @@ export const Price = styled.p`
   font-weight: 700;
   margin: 0.2rem 0;
   color: ${primary};
+  text-decoration: none;
 `;
