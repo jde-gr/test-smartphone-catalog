@@ -3,18 +3,13 @@ import { useQuery } from 'react-query';
 import PropTypes from 'prop-types';
 import { Formik, Field, Form } from 'formik';
 
-import {
-  BASE_URL,
-  BREAKPOINT_SIZES,
-  CARD_DIRECTION,
-} from '../../core/constants';
+import { BASE_URL, CARD_DIRECTION } from '../../core/constants';
 import {
   ProductContainer,
   ImgContainer,
   Image,
   Content,
   Desc,
-  Actions,
 } from './styles/ProductDetails.styles';
 import Card from '../UI/Card';
 import ProductInfo from './ProductInfo';
@@ -50,14 +45,6 @@ const ProductDetails = ({ id }) => {
     weight,
     options,
   } = !!data && data;
-
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleWindowResize = () => setWidth(window.innerWidth);
-    window.addEventListener('resize', handleWindowResize);
-    return () => window.removeEventListener('resize', handleWindowResize);
-  }, []);
 
   const ProductContent = () => {
     return (
@@ -96,13 +83,9 @@ const ProductDetails = ({ id }) => {
       {(status === 'loading' || isFetching) && <Desc>Fetching data...</Desc>}
       {status === 'success' && !!data && (
         <ProductContainer>
-          {width >= BREAKPOINT_SIZES.md ? (
-            <Card direction={CARD_DIRECTION.row} width='100%'>
-              {<ProductContent />}
-            </Card>
-          ) : (
-            <Card width='100%'>{<ProductContent />}</Card>
-          )}
+          <Card direction={CARD_DIRECTION.row} width='100%'>
+            {<ProductContent />}
+          </Card>
         </ProductContainer>
       )}
     </>

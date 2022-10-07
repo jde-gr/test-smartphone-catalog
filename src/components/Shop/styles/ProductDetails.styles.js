@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { PRIMARY, TERTIARY } from '../../../core/constants';
+import { BREAKPOINTS_MAX, PRIMARY, TERTIARY } from '../../../core/constants';
 
 export const ProductContainer = styled.div`
   display: flex;
@@ -15,6 +15,7 @@ export const ImgContainer = styled.div`
   align-items: center;
   flex: 1 1 auto;
   box-sizing: border-box;
+  padding: 1rem;
 `;
 
 export const Image = styled.img``;
@@ -28,6 +29,10 @@ export const Content = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
+
+  ${BREAKPOINTS_MAX.sm} {
+    border-radius: 0 0 0.75rem 0.75rem;
+  }
 `;
 
 export const Details = styled.div`

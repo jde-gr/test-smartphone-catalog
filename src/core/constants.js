@@ -9,6 +9,13 @@ export const BREAKPOINTS = {
   xl: '@media screen and (min-width: 75rem)', // 1200px
 };
 
+export const BREAKPOINTS_MAX = {
+  sm: '@media screen and (max-width: 36rem)', // 576px
+  md: '@media screen and (max-width: 48rem)', // 768px
+  lg: '@media screen and (max-width: 62rem)', // 992px
+  xl: '@media screen and (max-width: 75rem)', // 1200px
+};
+
 export const BREAKPOINT_SIZES = {
   sm: 576,
   md: 768,
