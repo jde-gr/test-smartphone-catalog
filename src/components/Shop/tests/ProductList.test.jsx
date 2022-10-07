@@ -53,6 +53,4 @@ test('device card links to the details page', async () => {
 
   const card1Link = await screen.findByTestId('ZmGrkLRPXOTpxsU4jjAcv');
   expect(card1Link).toHaveAttribute('href', '/device/:ZmGrkLRPXOTpxsU4jjAcv');
-
-  // expect(modelText.closest('a')).toHaveAttribute('href', /^\/device\/:/i);
 });

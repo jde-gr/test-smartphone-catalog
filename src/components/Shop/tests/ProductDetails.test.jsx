@@ -1,4 +1,9 @@
-import { render, screen } from '../../../test-utils/testing-library-utils';
+import {
+  render,
+  screen,
+  within,
+} from '../../../test-utils/testing-library-utils';
+import userEvent from '@testing-library/user-event';
 
 import ProductDetails from '../ProductDetails';
 

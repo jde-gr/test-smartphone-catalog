@@ -1,25 +1,24 @@
+import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import PropTypes from 'prop-types';
+import { Formik, Field, Form } from 'formik';
+
 import {
   BASE_URL,
   BREAKPOINT_SIZES,
   CARD_DIRECTION,
 } from '../../core/constants';
 import {
-  ProductInfo,
+  ProductContainer,
   ImgContainer,
   Image,
   Content,
-  Title,
   Desc,
-  SubTitle,
-  Key,
-  Details,
   Actions,
 } from './styles/ProductDetails.styles';
 import Card from '../UI/Card';
-import { Price } from './styles/ProductItem.styles';
-import { useEffect, useState } from 'react';
+import ProductInfo from './ProductInfo';
+import ProductActions from './ProductActions';
 
 const ProductDetails = ({ id }) => {
   const fetchProduct = async () => {
@@ -67,71 +66,25 @@ const ProductDetails = ({ id }) => {
           <Image src={imgUrl} alt={`Dispositivo ${brand} ${model}`} />
         </ImgContainer>
         <Content>
-          <Details>
-            <Title>
-              {brand} {model}
-            </Title>
-            <Price>Precio: {price}€</Price>
-            <SubTitle>Características:</SubTitle>
-            <Desc>
-              <Key>CPU:</Key> {cpu}
-            </Desc>
-            <Desc>
-              <Key>RAM:</Key> {ram}
-            </Desc>
-            <Desc>
-              <Key>Sistema Operativo:</Key> {os}
-            </Desc>
-            <Desc>
-              <Key>Resolución de pantalla:</Key> {displayResolution}
-            </Desc>
-            <Desc>
-              <Key>Tipo de pantalla:</Key> {displayType}
-            </Desc>
-            <Desc>
-              <Key>Tamaño de pantalla:</Key> {displaySize}
-            </Desc>
-            <Desc>
-              <Key>Memoria interna:</Key> {internalMemory}
-            </Desc>
-            <Desc>
-              <Key>Memoria externa:</Key> {externalMemory}
-            </Desc>
-            <Desc>
-              <Key>Batería:</Key> {battery}
-            </Desc>
-            <Desc>
-              <Key>Cámara principal:</Key> {primaryCamera}
-            </Desc>
-            <Desc>
-              <Key>Cámara secundaria:</Key> {secondaryCmera}
-            </Desc>
-            <Desc>
-              <Key>Dimensiones:</Key> {dimentions}
-            </Desc>
-            <Desc>
-              <Key>Peso:</Key> {weight}g.
-            </Desc>
-          </Details>
-          <Actions>
-            <Desc>Actions panel</Desc>
-            <div>
-              <label for='storage'>Almacenamiento: </label>
-              <select name='storage' id='storage'>
-                {options.storages.map((storage) => (
-                  <option value={storage.code}>{storage.name}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label for='color'>Color: </label>
-              <select name='color' id='color'>
-                {options.colors.map((color) => (
-                  <option value={color.code}>{color.name}</option>
-                ))}
-              </select>
-            </div>
-          </Actions>
+          <ProductInfo
+            brand={brand}
+            model={model}
+            price={price}
+            cpu={cpu}
+            ram={ram}
+            os={os}
+            displayResolution={displayResolution}
+            displayType={displayType}
+            displaySize={displaySize}
+            internalMemory={internalMemory}
+            externalMemory={externalMemory}
+            battery={battery}
+            primaryCamera={primaryCamera}
+            secondaryCmera={secondaryCmera}
+            dimentions={dimentions}
+            weight={weight}
+          />
+          <ProductActions options={options} />
         </Content>
       </>
     );
@@ -142,7 +95,7 @@ const ProductDetails = ({ id }) => {
       {status === 'error' && <Desc>{error.toString()}</Desc>}
       {(status === 'loading' || isFetching) && <Desc>Fetching data...</Desc>}
       {status === 'success' && !!data && (
-        <ProductInfo>
+        <ProductContainer>
           {width >= BREAKPOINT_SIZES.md ? (
             <Card direction={CARD_DIRECTION.row} width='100%'>
               {<ProductContent />}
@@ -150,7 +103,7 @@ const ProductDetails = ({ id }) => {
           ) : (
             <Card width='100%'>{<ProductContent />}</Card>
           )}
-        </ProductInfo>
+        </ProductContainer>
       )}
     </>
   );

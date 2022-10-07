@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { PRIMARY, TERTIARY } from '../../../core/constants';
 
-export const ProductInfo = styled.div`
+export const ProductContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: stretch;

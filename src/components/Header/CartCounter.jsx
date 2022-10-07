@@ -1,10 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { SECONDARY } from '../../core/constants';
+import { Badge } from './styles/CardCounter.styles';
 
 const CartCounter = (props) => {
-  return <div>CartCounter</div>;
+  return (
+    <div>
+      <Badge variantColor={SECONDARY} data-testid='cartItemQty'>
+        0
+      </Badge>
+    </div>
+  );
 };
-
-CartCounter.propTypes = {};
 
 export default CartCounter;
