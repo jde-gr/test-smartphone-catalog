@@ -1,8 +1,13 @@
 import { Formik, Field, Form } from 'formik';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Actions } from './styles/ProductDetails.styles';
 
-const ProductActions = ({ options }) => {
+import { Actions } from './styles/ProductDetails.styles';
+import { postItemToCart } from '../../store/cart-thunks';
+
+const ProductActions = ({ id, options }) => {
+  const dispatch = useDispatch();
+
   return (
     <Actions>
       <Formik
@@ -12,8 +17,7 @@ const ProductActions = ({ options }) => {
         }}
         onSubmit={async (values) => {
           await new Promise((r) => setTimeout(r, 500));
-          console.log(JSON.stringify(values, null, 2));
-          // TODO: dispatch action: addItemToCart
+          dispatch(postItemToCart(id, values.colorInput, values.storageInput));
         }}
       >
         {({ values }) => (
@@ -55,6 +59,7 @@ const ProductActions = ({ options }) => {
 };
 
 ProductActions.propTypes = {
+  id: PropTypes.string,
   options: PropTypes.object,
 };
 

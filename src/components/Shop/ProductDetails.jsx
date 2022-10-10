@@ -71,7 +71,7 @@ const ProductDetails = ({ id }) => {
             dimentions={dimentions}
             weight={weight}
           />
-          <ProductActions options={options} />
+          <ProductActions id={id} options={options} />
         </Content>
       </>
     );
