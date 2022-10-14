@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import PropTypes from 'prop-types';
-import { Formik, Field, Form } from 'formik';
 
 import { BASE_URL, CARD_DIRECTION } from '../../core/constants';
 import {
@@ -10,10 +8,12 @@ import {
   Image,
   Content,
   Desc,
+  LinkContainer,
 } from './styles/ProductDetails.styles';
 import Card from '../UI/Card';
 import ProductInfo from './ProductInfo';
 import ProductActions from './ProductActions';
+import { Link } from 'react-router-dom';
 
 const ProductDetails = ({ id }) => {
   const fetchProduct = async () => {
@@ -82,11 +82,16 @@ const ProductDetails = ({ id }) => {
       {status === 'error' && <Desc>{error.toString()}</Desc>}
       {(status === 'loading' || isFetching) && <Desc>Fetching data...</Desc>}
       {status === 'success' && !!data && (
-        <ProductContainer>
-          <Card direction={CARD_DIRECTION.row} width='100%'>
-            {<ProductContent />}
-          </Card>
-        </ProductContainer>
+        <>
+          <LinkContainer>
+            <Link to={'/devices'}>{'<'} Volver</Link>
+          </LinkContainer>
+          <ProductContainer>
+            <Card direction={CARD_DIRECTION.row} width='100%'>
+              {<ProductContent />}
+            </Card>
+          </ProductContainer>
+        </>
       )}
     </>
   );

@@ -1,6 +1,12 @@
 import styled from '@emotion/styled';
 import { BREAKPOINTS_MAX, PRIMARY, TERTIARY } from '../../../core/constants';
 
+export const LinkContainer = styled.div`
+  display: flex;
+  justify-content: start;
+  padding: 2rem 2rem 0;
+`;
+
 export const ProductContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
