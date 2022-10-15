@@ -5,7 +5,7 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
   width: 100%;
   height: ${HEADERHEIGHT};
   background-color: #345678;
@@ -22,6 +22,7 @@ export const HeaderTitle = styled.div`
   height: 3rem;
   flex: none;
   display: flex;
+  justify-content: flex-start;
   color: white;
 
   & img {

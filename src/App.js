@@ -4,13 +4,24 @@ import ProductListPage from './pages/ProductListPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import NotFound from './pages/NotFound';
 
+export const routes = [
+  {
+    path: '/devices',
+    element: <ProductListPage />,
+  },
+  {
+    path: '/device/:device',
+    element: <ProductDetailsPage />,
+  },
+];
+
 function App() {
   return (
     <Routes>
       <Route path='/' element={<Navigate replace to='/devices' />} />
-      <Route path='/devices' element={<ProductListPage />} />
-      <Route path='/device' element={<ProductDetailsPage />} />
-      <Route path='/device/:device' element={<ProductDetailsPage />} />
+      {routes.map(({ path, element }, key) => (
+        <Route path={path} key={key} element={element} />
+      ))}
       <Route path='*' element={<NotFound />} />
     </Routes>
   );

@@ -16,7 +16,11 @@ const ProductItem = (props) => {
   return (
     <Card>
       <LinkContainer>
-        <Link to={`/device/:${id}`} state={{ id: id }} data-testid={id}>
+        <Link
+          to={`/device/:${id}`}
+          state={{ id: id, device: `${brand} ${model}` }}
+          data-testid={id}
+        >
           <ImgContainer>
             <Image src={imgUrl} alt={`Dispositivo ${brand} ${model}`} />
           </ImgContainer>

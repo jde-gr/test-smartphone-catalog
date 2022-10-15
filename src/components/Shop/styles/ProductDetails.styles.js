@@ -5,6 +5,13 @@ export const LinkContainer = styled.div`
   display: flex;
   justify-content: start;
   padding: 2rem 2rem 0;
+
+  a {
+    color: ${PRIMARY};
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
 `;
 
 export const ProductContainer = styled.div`

@@ -1,8 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Link, useLocation } from 'react-router-dom';
+import { BreadcrumbContainer } from './styles/Breadcrumb.styles';
 
 const Breadcrumb = (props) => {
-  return <div>Home - Item details</div>;
+  const location = useLocation();
+
+  return (
+    <BreadcrumbContainer>
+      <Link key={'/'} to={'/'}>
+        <span>{'> '}Inicio</span>
+      </Link>
+      {!!location.state?.device && (
+        <span>
+          {' '}
+          {' > '}
+          {location.state.device}
+        </span>
+      )}
+    </BreadcrumbContainer>
+  );
 };
 
 Breadcrumb.propTypes = {};
