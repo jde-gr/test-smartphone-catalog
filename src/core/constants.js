@@ -29,5 +29,5 @@ export const CARD_DIRECTION = {
 };
 
 export const PRIMARY = '#345678';
-export const SECONDARY = '#d8b321';
+export const SECONDARY = '#e89321';
 export const TERTIARY = '#456789';

@@ -9,11 +9,13 @@ import {
   Content,
   Desc,
   LinkContainer,
+  LoadingWrapper,
 } from './styles/ProductDetails.styles';
 import Card from '../UI/Card';
 import ProductInfo from './ProductInfo';
 import ProductActions from './ProductActions';
 import { Link } from 'react-router-dom';
+import LoadingSpinner from '../UI/LoadingSpinner';
 
 const ProductDetails = ({ id }) => {
   const fetchProduct = async () => {
@@ -80,7 +82,11 @@ const ProductDetails = ({ id }) => {
   return (
     <>
       {status === 'error' && <Desc>{error.toString()}</Desc>}
-      {(status === 'loading' || isFetching) && <Desc>Fetching data...</Desc>}
+      {(status === 'loading' || isFetching) && (
+        <LoadingWrapper>
+          <LoadingSpinner />
+        </LoadingWrapper>
+      )}
       {status === 'success' && !!data && (
         <>
           <LinkContainer>

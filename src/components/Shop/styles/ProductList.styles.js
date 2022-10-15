@@ -6,6 +6,14 @@ export const PageContainer = styled.div`
   box-sizing: border-box;
 `;
 
+export const LoadingWrapper = styled.div`
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const PLPList = styled.div`
   display: grid;
   gap: 0.5rem;

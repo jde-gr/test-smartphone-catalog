@@ -2,9 +2,14 @@ import { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 
 import { BASE_URL } from '../../core/constants';
+import LoadingSpinner from '../UI/LoadingSpinner';
 import ProductItem from './ProductItem';
 import SearchBar from './SearchBar';
-import { PLPList, PageContainer } from './styles/ProductList.styles';
+import {
+  PLPList,
+  PageContainer,
+  LoadingWrapper,
+} from './styles/ProductList.styles';
 
 const ProductList = () => {
   const fetchProducts = async () => {
@@ -51,7 +56,11 @@ const ProductList = () => {
     <PageContainer>
       <SearchBar onChangeFilter={filterHandler} />
       {status === 'error' && <p>{error.toString()}</p>}
-      {(status === 'loading' || isFetching) && <p>Fetching data...</p>}
+      {(status === 'loading' || isFetching) && (
+        <LoadingWrapper>
+          <LoadingSpinner />
+        </LoadingWrapper>
+      )}
       {status === 'success' && !!filteredData.length && (
         <PLPList>{devices}</PLPList>
       )}
