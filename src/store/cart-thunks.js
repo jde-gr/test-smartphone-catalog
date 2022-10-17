@@ -1,6 +1,12 @@
-import { type } from '@testing-library/user-event/dist/type';
-import { BASE_URL } from '../core/constants';
+import {
+  BASE_URL,
+  ERRORMESSAGE,
+  NOTIFICATIONSTATUS,
+  SENDNOTIFICATIONMSG,
+  SENDNOTIFICATIONTITLE,
+} from '../core/constants';
 import { setCartItemCount } from './cart-slice';
+import { uiActions } from './ui-slice';
 
 export const postItemToCart = (itemId, itemColorCode, itemStorageCode) => {
   return async (dispatch) => {
@@ -9,21 +15,35 @@ export const postItemToCart = (itemId, itemColorCode, itemStorageCode) => {
       colorCode: itemColorCode,
       storageCode: itemStorageCode,
     };
-    const res = await fetch(`${BASE_URL}/cart`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newItem),
-    });
-    const resData = await res.json();
-    console.log(
-      '🚀 ~ file: cart-actions.js ~ line 19 ~ return ~ resData',
-      JSON.stringify(resData)
-    );
-    console.log(
-      `resData.count: ${resData.count} | type: ${typeof resData.count}`
-    );
-    dispatch(setCartItemCount({ count: resData.count }));
+    const sendData = async () => {
+      const res = await fetch(`${BASE_URL}/cart`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newItem),
+      });
+
+      if (!res.ok) {
+        throw new Error(ERRORMESSAGE.sendCardDataError);
+      }
+
+      const resData = await res.json();
+
+      return resData;
+    };
+
+    try {
+      const cartData = await sendData();
+      dispatch(setCartItemCount({ count: cartData.count }));
+    } catch (error) {
+      dispatch(
+        uiActions.showNotification({
+          status: NOTIFICATIONSTATUS.error,
+          title: SENDNOTIFICATIONTITLE.error,
+          message: SENDNOTIFICATIONMSG.error,
+        })
+      );
+    }
   };
 };

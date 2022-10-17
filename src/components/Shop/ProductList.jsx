@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
+import { useDispatch } from 'react-redux';
 
-import { BASE_URL } from '../../core/constants';
+import {
+  BASE_URL,
+  ERRORMESSAGE,
+  FETCHNOTIFICATIONMSG,
+  FETCHNOTIFICATIONTITLE,
+  NOTIFICATIONSTATUS,
+} from '../../core/constants';
+import { uiActions } from '../../store/ui-slice';
 import LoadingSpinner from '../UI/LoadingSpinner';
 import ProductItem from './ProductItem';
 import SearchBar from './SearchBar';
@@ -14,6 +22,9 @@ import {
 const ProductList = () => {
   const fetchProducts = async () => {
     const res = await fetch(`${BASE_URL}/product`);
+    if (!res.ok) {
+      throw new Error(ERRORMESSAGE.fetchDataError);
+    }
     const data = await res.json();
     return data;
   };
@@ -26,9 +37,19 @@ const ProductList = () => {
 
   const [filteredData, setFilteredData] = useState([]);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
+    status === 'error' &&
+      dispatch(
+        uiActions.showNotification({
+          status: NOTIFICATIONSTATUS.error,
+          title: FETCHNOTIFICATIONTITLE.error,
+          message: `${FETCHNOTIFICATIONMSG.error}: ${error.toString()}`,
+        })
+      );
     status === 'success' && !filteredData.length && setFilteredData(data);
-  }, [status, data, filteredData]);
+  }, [status, data, filteredData, error, dispatch]);
 
   const devices = filteredData?.map((device) => (
     <ProductItem
@@ -55,7 +76,6 @@ const ProductList = () => {
   return (
     <PageContainer>
       <SearchBar onChangeFilter={filterHandler} />
-      {status === 'error' && <p>{error.toString()}</p>}
       {(status === 'loading' || isFetching) && (
         <LoadingWrapper>
           <LoadingSpinner />

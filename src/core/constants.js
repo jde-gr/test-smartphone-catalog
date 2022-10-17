@@ -31,3 +31,30 @@ export const CARD_DIRECTION = {
 export const PRIMARY = '#345678';
 export const SECONDARY = '#e89321';
 export const TERTIARY = '#456789';
+export const SUCCESSBG = '#129a12';
+export const ERRORBG = '#9a1212';
+
+export const ERRORMESSAGE = {
+  fetchDataError: 'Error en la obtención de datos',
+  sendCardDataError: 'Error en el envío de datos al carrito',
+};
+
+export const NOTIFICATIONSTATUS = {
+  error: 'error',
+};
+
+export const FETCHNOTIFICATIONTITLE = {
+  error: '¡Error!',
+};
+
+export const SENDNOTIFICATIONTITLE = {
+  error: '¡Error!',
+};
+
+export const FETCHNOTIFICATIONMSG = {
+  error: 'Fallo en la obtención de datos',
+};
+
+export const SENDNOTIFICATIONMSG = {
+  error: 'Fallo en el envío de datos al carrito',
+};

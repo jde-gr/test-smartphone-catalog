@@ -1,13 +1,19 @@
 import { useQuery } from 'react-query';
 import PropTypes from 'prop-types';
 
-import { BASE_URL, CARD_DIRECTION } from '../../core/constants';
+import {
+  BASE_URL,
+  CARD_DIRECTION,
+  ERRORMESSAGE,
+  FETCHNOTIFICATIONMSG,
+  FETCHNOTIFICATIONTITLE,
+  NOTIFICATIONSTATUS,
+} from '../../core/constants';
 import {
   ProductContainer,
   ImgContainer,
   Image,
   Content,
-  Desc,
   LinkContainer,
   LoadingWrapper,
 } from './styles/ProductDetails.styles';
@@ -16,10 +22,16 @@ import ProductInfo from './ProductInfo';
 import ProductActions from './ProductActions';
 import { Link } from 'react-router-dom';
 import LoadingSpinner from '../UI/LoadingSpinner';
+import { useLayoutEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { uiActions } from '../../store/ui-slice';
 
 const ProductDetails = ({ id }) => {
   const fetchProduct = async () => {
     const res = await fetch(`${BASE_URL}/product/${id}`);
+    if (!res.ok) {
+      throw new Error(ERRORMESSAGE.fetchDataError);
+    }
     const data = await res.json();
     return data;
   };
@@ -47,6 +59,19 @@ const ProductDetails = ({ id }) => {
     weight,
     options,
   } = !!data && data;
+
+  const dispatch = useDispatch();
+
+  useLayoutEffect(() => {
+    status === 'error' &&
+      dispatch(
+        uiActions.showNotification({
+          status: NOTIFICATIONSTATUS.error,
+          title: FETCHNOTIFICATIONTITLE.error,
+          message: `${FETCHNOTIFICATIONMSG.error}: ${error.toString()}`,
+        })
+      );
+  }, [dispatch, error, status]);
 
   const ProductContent = () => {
     return (
@@ -81,7 +106,6 @@ const ProductDetails = ({ id }) => {
 
   return (
     <>
-      {status === 'error' && <Desc>{error.toString()}</Desc>}
       {(status === 'loading' || isFetching) && (
         <LoadingWrapper>
           <LoadingSpinner />
