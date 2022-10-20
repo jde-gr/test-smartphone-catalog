@@ -1,8 +1,17 @@
 import userEvent from '@testing-library/user-event';
+import { rest } from 'msw';
 
-import { render, screen } from '../../../test-utils/testing-library-utils';
+import {
+  render,
+  screen,
+  waitFor,
+} from '../../../test-utils/testing-library-utils';
+import { server } from '../../../mocks/server';
+
+import { BASE_URL } from '../../../core/constants';
 
 import ProductList from '../ProductList';
+import ProductListPage from '../../../pages/ProductListPage';
 
 test('displays image for each mobile device from server', async () => {
   render(<ProductList />);
@@ -54,3 +63,18 @@ test('device card links to the details page', async () => {
   const card1Link = await screen.findByTestId('ZmGrkLRPXOTpxsU4jjAcv');
   expect(card1Link).toHaveAttribute('href', '/device/:ZmGrkLRPXOTpxsU4jjAcv');
 });
+
+/* test('handles error for the device list', async () => {
+  server.resetHandlers(
+    rest.get(`${BASE_URL}/product`, (req, res, ctx) => {
+      return res(ctx.status(500));
+    })
+  );
+
+  render(<ProductListPage />);
+
+  await waitFor(async () => {
+    const notification = await screen.findByTestId('notification');
+    expect(notification).toBeInTheDocument();
+  });
+}); */

@@ -1,11 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialUiState = { notification: null };
+const initialUiState = { haveLocalProducts: false, notification: null };
 
 const uiSlice = createSlice({
   name: 'ui',
   initialState: initialUiState,
   reducers: {
+    toggleProductListIsLocal(state) {
+      state.haveLocalProducts = !state.haveLocalProducts;
+    },
+    setProductListIsLocal(state) {
+      state.haveLocalProducts = true;
+    },
+    setNoLocalProductList(state) {
+      state.haveLocalProducts = false;
+    },
     showNotification(state, action) {
       state.notification = {
         status: action.payload.status,

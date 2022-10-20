@@ -16,6 +16,9 @@ export const routes = [
 ];
 
 function App() {
+  localStorage.setItem('products', JSON.stringify({}));
+  localStorage.setItem('productsDate', JSON.stringify({}));
+
   return (
     <Routes>
       <Route path='/' element={<Navigate replace to='/devices' />} />

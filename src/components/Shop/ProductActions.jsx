@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { Actions } from './styles/ProductDetails.styles';
 import { postItemToCart } from '../../store/cart-thunks';
+import { Button } from './styles/ProductActions.styles';
 
 const ProductActions = ({ id, options }) => {
   const dispatch = useDispatch();
@@ -50,7 +51,7 @@ const ProductActions = ({ id, options }) => {
               ))}
             </div>
 
-            <button type='submit'>Añadir al carrito</button>
+            <Button type='submit'>Añadir al carrito</Button>
           </Form>
         )}
       </Formik>

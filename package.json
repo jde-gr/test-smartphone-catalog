@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "dayjs": "^1.11.5",
     "formik": "^2.2.9",
     "msw": "^0.47.4",
     "react": "^18.2.0",
@@ -26,6 +27,9 @@
     "test:lint:js": "eslint --ext=js --ext=jsx .",
     "test:lint:css": "stylelint \"**/*.css\"",
     "test": "react-scripts test",
+    "lint": "yarn eslint && yarn styleint",
+    "eslint": "eslint '**/*.{ts,tsx,js,jsx,json}'",
+    "stylelint": "stylelint '**/*.{ts,tsx,js,jsx}'",
     "eject": "react-scripts eject"
   },
   "browserslist": {

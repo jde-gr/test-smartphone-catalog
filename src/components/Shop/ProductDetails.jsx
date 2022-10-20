@@ -1,10 +1,7 @@
-import { useQuery } from 'react-query';
 import PropTypes from 'prop-types';
 
 import {
-  BASE_URL,
   CARD_DIRECTION,
-  ERRORMESSAGE,
   FETCHNOTIFICATIONMSG,
   FETCHNOTIFICATIONTITLE,
   NOTIFICATIONSTATUS,
@@ -25,20 +22,10 @@ import LoadingSpinner from '../UI/LoadingSpinner';
 import { useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { uiActions } from '../../store/ui-slice';
+import { useProduct } from '../../hooks/useProduct';
 
 const ProductDetails = ({ id }) => {
-  const fetchProduct = async () => {
-    const res = await fetch(`${BASE_URL}/product/${id}`);
-    if (!res.ok) {
-      throw new Error(ERRORMESSAGE.fetchDataError);
-    }
-    const data = await res.json();
-    return data;
-  };
-
-  // const queryClient = useQueryClient();
-  const { status, data, error, isFetching } = useQuery('product', fetchProduct);
-
+  const { status, data, error, isFetching } = useProduct({ id });
   const {
     brand,
     model,

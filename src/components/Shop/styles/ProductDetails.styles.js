@@ -98,4 +98,6 @@ export const Actions = styled.div`
   border-top: 0.0625rem solid rgba(0, 0, 0, 0.15);
   background-color: rgba(0, 0, 0, 0.025);
   border-radius: 0 0 0.75rem 0;
+  display: flex;
+  justify-content: start;
 `;
