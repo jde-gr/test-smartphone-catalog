@@ -6,7 +6,7 @@ import {
   HeaderTitle,
 } from './styles/AppHeader.styles';
 
-import logo from '../../logo.svg';
+import logo from '../../logo.png';
 import CartCounter from '../Header/CartCounter';
 import Breadcrumb from '../Header/Breadcrumb';
 

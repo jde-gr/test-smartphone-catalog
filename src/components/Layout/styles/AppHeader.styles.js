@@ -24,6 +24,7 @@ export const HeaderTitle = styled.div`
   display: flex;
   justify-content: flex-start;
   color: white;
+  background-color: #345678;
 
   & img {
     height: 3rem;
@@ -33,7 +34,7 @@ export const HeaderTitle = styled.div`
     height: 3rem;
     line-height: 3rem;
     display: inline-block;
-    margin: 0;
+    margin: 0 0.5rem 0;
     font-size: 2rem;
     font-weight: 500;
   }
