@@ -1,20 +1,12 @@
 import userEvent from '@testing-library/user-event';
-import { rest } from 'msw';
 
-import {
-  render,
-  screen,
-  waitFor,
-} from '../../../test-utils/testing-library-utils';
-import { server } from '../../../mocks/server';
-
-import { BASE_URL } from '../../../core/constants';
+import { render, screen } from '../../../test-utils/testing-library-utils';
 
 import ProductList from '../ProductList';
-import ProductListPage from '../../../pages/ProductListPage';
+import { productListData } from '../../../test-utils/fixtures/productListFixtures';
 
 test('displays image for each mobile device from server', async () => {
-  render(<ProductList />);
+  render(<ProductList data={productListData} />);
 
   // find images
   const mobileImages = await screen.findAllByRole('img', {
@@ -31,14 +23,14 @@ test('displays image for each mobile device from server', async () => {
 });
 
 test('displays a search bar to filter devices', () => {
-  render(<ProductList />);
+  render(<ProductList data={productListData} />);
 
   const searchInput = screen.getByPlaceholderText(/buscar/i);
   expect(searchInput).toBeInTheDocument();
 });
 
 test('updates device list when typing on search', async () => {
-  render(<ProductList />);
+  render(<ProductList data={productListData} />);
 
   // find device model that will be filtered and that one which will remain
   const modelText = await screen.findByText(/Iconia Talk S$/i);
@@ -58,7 +50,7 @@ test('updates device list when typing on search', async () => {
 });
 
 test('device card links to the details page', async () => {
-  render(<ProductList />);
+  render(<ProductList data={productListData} />);
 
   const card1Link = await screen.findByTestId('ZmGrkLRPXOTpxsU4jjAcv');
   expect(card1Link).toHaveAttribute('href', '/device/:ZmGrkLRPXOTpxsU4jjAcv');
