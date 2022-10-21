@@ -13,8 +13,8 @@ const ProductActions = ({ id, options }) => {
     <Actions>
       <Formik
         initialValues={{
-          storageInput: String(options.storages[0].code),
-          colorInput: String(options.colors[0].code),
+          storageInput: String(options?.storages[0].code),
+          colorInput: String(options?.colors[0].code),
         }}
         onSubmit={async (values) => {
           await new Promise((r) => setTimeout(r, 500));
@@ -25,7 +25,7 @@ const ProductActions = ({ id, options }) => {
           <Form>
             <div id='storageGroup'>Almacenamiento: </div>
             <div role='group' aria-labelledby='storageGroup'>
-              {options.storages.map((storage) => (
+              {options?.storages.map((storage) => (
                 <label key={storage.code}>
                   <Field
                     type='radio'
@@ -39,7 +39,7 @@ const ProductActions = ({ id, options }) => {
 
             <div id='colorGroup'>Color: </div>
             <div role='group' aria-labelledby='colorGroup'>
-              {options.colors.map((color) => (
+              {options?.colors.map((color) => (
                 <label key={color.code}>
                   <Field
                     type='radio'
