@@ -18,6 +18,7 @@
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
+    "stylelint": "^14.14.0",
     "use-react-router-breadcrumbs": "^4.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -27,9 +28,9 @@
     "test:lint:js": "eslint --ext=js --ext=jsx .",
     "test:lint:css": "stylelint \"**/*.css\"",
     "test": "react-scripts test",
-    "lint": "yarn eslint && yarn styleint",
-    "eslint": "eslint '**/*.{ts,tsx,js,jsx,json}'",
-    "stylelint": "stylelint '**/*.{ts,tsx,js,jsx}'",
+    "lint": "yarn eslint && yarn stylelint",
+    "eslint": "eslint \"**/*.{js,jsx}\"",
+    "stylelint": "stylelint \"**/*.{js,jsx}\"",
     "eject": "react-scripts eject"
   },
   "browserslist": {
@@ -51,6 +52,10 @@
   "license": "MIT",
   "devDependencies": {
     "eslint-plugin-jest-dom": "^4.0.2",
-    "eslint-plugin-testing-library": "^5.7.2"
+    "eslint-plugin-testing-library": "^5.7.2",
+    "postcss-scss": "^4.0.2",
+    "stylelint-config-recommended-scss": "^9.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0"
   }
 }

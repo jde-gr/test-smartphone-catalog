@@ -1,8 +1,5 @@
 import PropTypes from 'prop-types';
 import {
-  Image,
-  ImgContainer,
-  Content,
   Details,
   Title,
   Price,

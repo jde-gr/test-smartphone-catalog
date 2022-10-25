@@ -10,12 +10,11 @@ export const LinkContainer = styled.div`
   & a:hover {
     & div:first-of-type {
       background-color: rgba(52, 86, 120, 0.15);
-        border-radius: 0.75rem 0.75rem 0 0;
+      border-radius: 0.75rem 0.75rem 0 0;
     }
     & div:nth-of-type(2) {
-      background-color: rgba(52, 86, 120, 0.20);
+      background-color: rgba(52, 86, 120, 0.2);
       border-radius: 0 0 0.75rem 0.75rem;
-    }
     }
   }
 `;

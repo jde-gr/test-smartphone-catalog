@@ -26,6 +26,14 @@ export const handlers = [
     );
   }),
 
+  rest.post(`${BASE_URL}/cart`, (req, res, ctx) => {
+    return res(
+      ctx.json({
+        count: 1,
+      })
+    );
+  }),
+
   rest.get(`${BASE_URL}/product/:id`, (req, res, ctx) => {
     return res(
       ctx.json({
@@ -85,14 +93,6 @@ export const handlers = [
             },
           ],
         },
-      })
-    );
-  }),
-
-  rest.post(`${BASE_URL}/cart`, (req, res, ctx) => {
-    return res(
-      ctx.json({
-        count: 1,
       })
     );
   }),
