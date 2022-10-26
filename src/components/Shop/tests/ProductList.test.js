@@ -5,6 +5,11 @@ import { render, screen } from '../../../test-utils/testing-library-utils';
 import ProductList from '../ProductList';
 import { productListData } from '../../../test-utils/fixtures/productListFixtures';
 
+test('renders correctly', () => {
+  const { container } = render(<ProductList data={productListData} />);
+  expect(container).toMatchSnapshot();
+});
+
 test('displays image for each mobile device from server', async () => {
   render(<ProductList data={productListData} />);
 
@@ -55,18 +60,3 @@ test('device card links to the details page', async () => {
   const card1Link = await screen.findByTestId('ZmGrkLRPXOTpxsU4jjAcv');
   expect(card1Link).toHaveAttribute('href', '/device/:ZmGrkLRPXOTpxsU4jjAcv');
 });
-
-/* test('handles error for the device list', async () => {
-  server.resetHandlers(
-    rest.get(`${BASE_URL}/product`, (req, res, ctx) => {
-      return res(ctx.status(500));
-    })
-  );
-
-  render(<ProductListPage />);
-
-  await waitFor(async () => {
-    const notification = await screen.findByTestId('notification');
-    expect(notification).toBeInTheDocument();
-  });
-}); */

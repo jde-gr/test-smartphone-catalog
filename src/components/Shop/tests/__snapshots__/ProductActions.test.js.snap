@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    class="css-1xe7ryq"
+  >
+    <form
+      action="#"
+    >
+      <div
+        id="storageGroup"
+      >
+        Almacenamiento: 
+      </div>
+      <div
+        aria-labelledby="storageGroup"
+        role="group"
+      />
+      <div
+        id="colorGroup"
+      >
+        Color: 
+      </div>
+      <div
+        aria-labelledby="colorGroup"
+        role="group"
+      />
+      <button
+        class="css-1p3dwju"
+        type="submit"
+      >
+        Añadir al carrito
+      </button>
+    </form>
+  </div>
+</div>
+`;

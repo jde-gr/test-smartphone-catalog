@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div>
+    <span
+      class="css-cdjgyj"
+      data-testid="cartItemQty"
+    >
+      0
+    </span>
+  </div>
+</div>
+`;

@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    style="width: inherit;"
+  >
+    <div
+      class="css-1xb5uqo"
+    >
+      <div
+        class="css-1b8ia93"
+      >
+        <a
+          href="/device/:undefined"
+        >
+          <div
+            class="css-1r4ryte"
+          >
+            <img
+              alt="Dispositivo undefined undefined"
+              class="css-0"
+            />
+          </div>
+          <div
+            class="css-ihzpm"
+          >
+            <h4
+              class="css-1iv4gsg"
+            >
+              Marca: 
+            </h4>
+            <h6
+              class="css-bhh5v6"
+            >
+              Modelo: 
+            </h6>
+            <p
+              class="css-1kkf7xj"
+            >
+              Precio: 
+              €
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

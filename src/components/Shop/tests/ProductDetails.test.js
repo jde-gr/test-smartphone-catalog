@@ -2,6 +2,11 @@ import { render, screen } from '../../../test-utils/testing-library-utils';
 
 import ProductDetails from '../ProductDetails';
 
+test('renders correctly', () => {
+  const { container } = render(<ProductDetails />);
+  expect(container).toMatchSnapshot();
+});
+
 test('displays the device after retrieving it from server', async () => {
   render(<ProductDetails />);
   const deviceModel = await screen.findByText(/iconia talk s$/i);

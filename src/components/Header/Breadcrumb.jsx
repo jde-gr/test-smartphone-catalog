@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BreadcrumbContainer } from './styles/Breadcrumb.styles';
 
-const Breadcrumb = (props) => {
+const Breadcrumb = () => {
   const location = useLocation();
 
   return (

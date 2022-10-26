@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { SECONDARY } from '../../core/constants';
 import { Badge } from './styles/CardCounter.styles';
 
-const CartCounter = (props) => {
+const CartCounter = () => {
   const itemCount = useSelector((state) => state.cart.itemCount);
   return (
     <div>

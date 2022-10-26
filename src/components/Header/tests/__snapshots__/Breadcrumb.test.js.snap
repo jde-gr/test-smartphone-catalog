@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    class="css-y7aohw"
+  >
+    <a
+      href="/"
+    >
+      <span>
+        &gt; 
+        Inicio
+      </span>
+    </a>
+  </div>
+</div>
+`;

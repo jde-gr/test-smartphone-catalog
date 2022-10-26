@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    class="css-1sjygkg"
+  >
+    <div
+      class="css-isrll3"
+    >
+      <input
+        class="css-102ulqx"
+        placeholder="Buscar"
+        type="text"
+      />
+    </div>
+    <div
+      class="css-9yntt9"
+    >
+      <div
+        style="width: inherit;"
+      >
+        <div
+          class="css-1xb5uqo"
+        >
+          <div
+            class="css-1b8ia93"
+          >
+            <a
+              data-testid="ZmGrkLRPXOTpxsU4jjAcv"
+              href="/device/:ZmGrkLRPXOTpxsU4jjAcv"
+            >
+              <div
+                class="css-1r4ryte"
+              >
+                <img
+                  alt="Dispositivo Acer Iconia Talk S"
+                  class="css-0"
+                  src="https://front-test-api.herokuapp.com/images/ZmGrkLRPXOTpxsU4jjAcv.jpg"
+                />
+              </div>
+              <div
+                class="css-ihzpm"
+              >
+                <h4
+                  class="css-1iv4gsg"
+                >
+                  Marca: 
+                  Acer
+                </h4>
+                <h6
+                  class="css-bhh5v6"
+                >
+                  Modelo: 
+                  Iconia Talk S
+                </h6>
+                <p
+                  class="css-1kkf7xj"
+                >
+                  Precio: 
+                  170
+                  €
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        style="width: inherit;"
+      >
+        <div
+          class="css-1xb5uqo"
+        >
+          <div
+            class="css-1b8ia93"
+          >
+            <a
+              data-testid="cGjFJlmqNPIwU59AOcY8H"
+              href="/device/:cGjFJlmqNPIwU59AOcY8H"
+            >
+              <div
+                class="css-1r4ryte"
+              >
+                <img
+                  alt="Dispositivo Acer Liquid Z6 Plus"
+                  class="css-0"
+                  src="https://front-test-api.herokuapp.com/images/cGjFJlmqNPIwU59AOcY8H.jpg"
+                />
+              </div>
+              <div
+                class="css-ihzpm"
+              >
+                <h4
+                  class="css-1iv4gsg"
+                >
+                  Marca: 
+                  Acer
+                </h4>
+                <h6
+                  class="css-bhh5v6"
+                >
+                  Modelo: 
+                  Liquid Z6 Plus
+                </h6>
+                <p
+                  class="css-1kkf7xj"
+                >
+                  Precio: 
+                  250
+                  €
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

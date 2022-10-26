@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import Card from '../UI/Card';
@@ -33,6 +34,14 @@ const ProductItem = (props) => {
       </LinkContainer>
     </Card>
   );
+};
+
+ProductItem.propTypes = {
+  id: PropTypes.string,
+  brand: PropTypes.string,
+  model: PropTypes.string,
+  price: PropTypes.string,
+  imgUrl: PropTypes.string,
 };
 
 export default ProductItem;

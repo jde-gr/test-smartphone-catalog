@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    class="css-strwe"
+  >
+    <h2
+      class="css-1hfgpi1"
+    >
+       
+    </h2>
+    <h5
+      class="css-19fz2k3"
+    >
+      Precio: 
+      €
+    </h5>
+    <h4
+      class="css-zvcg02"
+    >
+      Características:
+    </h4>
+    <p
+      class="css-usxmki"
+    >
+      <span
+        class="css-1ezgv1"
+      >
+        CPU:
+      </span>
+       
+    </p>
+    <p
+      class="css-usxmki"
+    >
+      <span
+        class="css-1ezgv1"
+      >
+        RAM:
+      </span>
+       
+    </p>
+    <p
+      class="css-usxmki"
+    >
+      <span
+        class="css-1ezgv1"
+      >
+        Sistema Operativo:
+      </span>
+       
+    </p>
+    <p
+      class="css-usxmki"
+    >
+      <span
+        class="css-1ezgv1"
+      >
+        Resolución de pantalla:
+      </span>
+       
+    </p>
+    <p
+      class="css-usxmki"
+    >
+      <span
+        class="css-1ezgv1"
+      >
+        Tipo de pantalla:
+      </span>
+       
+    </p>
+    <p
+      class="css-usxmki"
+    >
+      <span
+        class="css-1ezgv1"
+      >
+        Tamaño de pantalla:
+      </span>
+       
+    </p>
+    <p
+      class="css-usxmki"
+    >
+      <span
+        class="css-1ezgv1"
+      >
+        Memoria interna:
+      </span>
+       
+    </p>
+    <p
+      class="css-usxmki"
+    >
+      <span
+        class="css-1ezgv1"
+      >
+        Memoria externa:
+      </span>
+       
+    </p>
+    <p
+      class="css-usxmki"
+    >
+      <span
+        class="css-1ezgv1"
+      >
+        Batería:
+      </span>
+       
+    </p>
+    <p
+      class="css-usxmki"
+    >
+      <span
+        class="css-1ezgv1"
+      >
+        Cámara principal:
+      </span>
+       
+    </p>
+    <p
+      class="css-usxmki"
+    >
+      <span
+        class="css-1ezgv1"
+      >
+        Cámara secundaria:
+      </span>
+       
+    </p>
+    <p
+      class="css-usxmki"
+    >
+      <span
+        class="css-1ezgv1"
+      >
+        Dimensiones:
+      </span>
+       
+    </p>
+    <p
+      class="css-usxmki"
+    >
+      <span
+        class="css-1ezgv1"
+      >
+        Peso:
+      </span>
+       
+      g.
+    </p>
+  </div>
+</div>
+`;

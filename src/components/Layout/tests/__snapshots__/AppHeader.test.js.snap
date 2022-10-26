@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    class="css-1jcmugx"
+  >
+    <div
+      class="css-fi454r"
+    >
+      <div
+        class="css-8bn1o9"
+      >
+        <img
+          alt="logo"
+          class="App-logo"
+          src="logo.png"
+        />
+         
+        <h1>
+          Elige tu móvil
+        </h1>
+      </div>
+      <div
+        class="css-y7aohw"
+      >
+        <a
+          href="/"
+        >
+          <span>
+            &gt; 
+            Inicio
+          </span>
+        </a>
+      </div>
+    </div>
+    <div>
+      <span
+        class="css-cdjgyj"
+        data-testid="cartItemQty"
+      >
+        0
+      </span>
+    </div>
+  </div>
+</div>
+`;
